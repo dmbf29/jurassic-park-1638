@@ -1,0 +1,3 @@
+[✅] - As a user I can see one parks's dinosaurs
+[✅] - As a user I can add a dinosaur to a park
+[ ] - As a user I can release/execute a dinosaur

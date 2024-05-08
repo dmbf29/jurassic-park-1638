@@ -1,0 +1,19 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= @park.banner_url %>);">
+  <div class="container">
+    <h1><%= @park.name %> brings <strong>dinosaurs</strong> to <strong>your feet</strong>!</h1>
+    <%= link_to 'Add Dinosaur', new_park_dinosaur_path(@park), class: 'btn btn-danger mt-2'  %>
+  </div>
+</div>
+<div class="container mt-3">
+  <div class="cards">
+    <!-- INSERT DINOS HERE -->
+    <% @park.dinosaurs.each do |dinosaur| %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= dinosaur.image_url %>)">
+        <%= dinosaur.name %>
+        <%= link_to dinosaur_path(dinosaur), data: { turbo_method: :delete, turbo_confirm: 'Really?' }, class: 'card-remove-link' do %>
+          <i class="fa-solid fa-meteor"></i>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
