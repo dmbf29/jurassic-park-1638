@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_08_080618) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_09_080852) do
   create_table "dinosaurs", force: :cascade do |t|
     t.string "name"
     t.string "image_url"
@@ -18,6 +18,21 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_08_080618) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["park_id"], name: "index_dinosaurs_on_park_id"
+  end
+
+  create_table "hobbies", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "interests", force: :cascade do |t|
+    t.integer "dinosaur_id", null: false
+    t.integer "hobby_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["dinosaur_id"], name: "index_interests_on_dinosaur_id"
+    t.index ["hobby_id"], name: "index_interests_on_hobby_id"
   end
 
   create_table "parks", force: :cascade do |t|
@@ -28,4 +43,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_08_080618) do
   end
 
   add_foreign_key "dinosaurs", "parks"
+  add_foreign_key "interests", "dinosaurs"
+  add_foreign_key "interests", "hobbies"
 end

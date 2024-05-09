@@ -45,6 +45,10 @@ gem "bootsnap", require: false
 # gem "image_processing", "~> 1.2"
 
 # Custom Added
+gem "autoprefixer-rails"
+gem "bootstrap", "~> 5.2"
+gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'main'
+gem "font-awesome-sass", "~> 6.1"
 gem "sassc-rails" # allows us to use SCSS
 gem "simple_form"
 

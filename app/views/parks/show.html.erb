@@ -13,6 +13,16 @@
         <%= link_to dinosaur_path(dinosaur), data: { turbo_method: :delete, turbo_confirm: 'Really?' }, class: 'card-remove-link' do %>
           <i class="fa-solid fa-meteor"></i>
         <% end %>
+        <!-- INSERT HOBBY LINK HERE -->
+        <%= link_to new_dinosaur_interest_path(dinosaur), class: 'card-add-link' do %>
+          <i class="fa-solid fa-wand-magic-sparkles"></i>
+        <% end %>
+        <!-- INSERT HOBBIES HERE -->
+        <div class="card-tags">
+          <% dinosaur.hobbies.each do |hobby| %>
+            <span><%= hobby.name %></span>
+          <% end %>
+        </div>
       </div>
     <% end %>
   </div>
