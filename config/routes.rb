@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root to: 'pages#home'
   resources :parks, only: [:show] do
     resources :dinosaurs, only: [:new, :create]
   end
