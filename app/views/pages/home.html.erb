@@ -1,0 +1,14 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://deadline.com/wp-content/uploads/2017/01/jurassicpark.jpg);">
+  <div class="container">
+    <h1>Dinosaur Parks</h1>
+  </div>
+</div>
+<div class="container">
+  <div class="cards mt-3">
+    <% @parks.each do |park| %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= park.banner_url %>)">
+        <%= link_to park.name, park_path(park), class: 'text-decoration-none text-white' %>
+      </div>
+    <% end %>
+  </div>
+</div>
