@@ -12,6 +12,7 @@ class DinosaursController < ApplicationController
     @park = Park.find(params[:park_id])
     @dinosaur = Dinosaur.new(dinosaur_params)
     @dinosaur.park = @park
+    raise
     if @dinosaur.save
       redirect_to park_path(@park)
     else
